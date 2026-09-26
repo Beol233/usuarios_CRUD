@@ -6,10 +6,9 @@ class Usuario:
         self.id = datos["id"]
         self.nombre = datos["nombre"]
         self.apellido = datos["apellido"]
-        self.correo = datos["correo"]
-        self.contraseña = datos["contraseña"]
-        self.creado = datos["creado"]
-        self.actualizado = datos["actualizado"]
+        self.email = datos["email"]
+        self.created_at = datos["created_at"]
+        self.updated_at = datos["updated_at"]
 
     @classmethod
     def obtener_todos(cls):
@@ -19,21 +18,21 @@ class Usuario:
             resultados = cursor.fetchall()
         conexion.close()
         return [cls(fila) for fila in resultados]
-
+    
     @classmethod
     def crear(cls, datos):
         conexion = get_connection()
         query = """
-            INSERT INTO usuarios (nombre, apellido, correo, contraseña)
-            VALUES (%(nombre)s, %(apellido)s, %(correo)s, %(contraseña)s);
+            INSERT INTO usuarios (nombre, apellido, email, created_at, updated_at)
+            VALUES (%(nombre)s, %(apellido)s, %(email)s, NOW(), NOW());
         """
         with conexion.cursor() as cursor:
             cursor.execute(query, datos)
             conexion.commit()
             ultimo_id = cursor.lastrowid
         conexion.close()
-        return ultimo_id
-
+        return ultimo_id 
+    
     @classmethod
     def obtener_por_id(cls, id):
         conexion = get_connection()
@@ -48,8 +47,8 @@ class Usuario:
         conexion = get_connection()
         query = """
             UPDATE usuarios
-            SET nombre = %(nombre)s, apellido = %(apellido)s,
-                correo = %(correo)s, contraseña = %(contraseña)s
+            SET nombre = %(nombre)s, apellido = %(apellido)s, email = %(email)s,
+                updated_at = NOW()
             WHERE id = %(id)s;
         """
         with conexion.cursor() as cursor:

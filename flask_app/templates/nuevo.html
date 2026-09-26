@@ -6,26 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-     <h1>Agregar Nuevo Usuario</h1>
-
+    <h1>Agregar Nuevo Usuario</h1>
     <form action="/usuarios/crear" method="POST">
-        <p>
-            Nombre: <input type="text" name="nombre" required>
-        </p>
-        <p>
-            Apellido: <input type="text" name="apellido" required>
-        </p>
-        <p>
-            Correo: <input type="email" name="email" required>
-        </p>
-        <p>
-            Contraseña: <input type="password" name="contraseña" required>
-        </p>
-        <p>
-            <input type="submit" value="Guardar">
-        </p>
+        <p>Nombre: <input type="text" name="nombre" required></p>
+        <p>Apellido: <input type="text" name="apellido" required></p>
+        <p>Email: <input type="email" name="email" required></p>
+        <p><input type="submit" value="Guardar"></p>
     </form>
-
     <a href="/usuarios">Volver a la lista</a>
 </body>
 </html>
