@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Nuevo Usuario</h1>
+    <form method="post">
+        Nombre: <input type="text" name="nombre" required><br>
+        Apellido: <input type="text" name="apellido" required><br>  <!-- ✅ NUEVO -->
+        Email: <input type="email" name="email" required><br>
+        <button>Guardar</button>
+        <a href="{{ url_for('index') }}">Volver</a>
+    </form>
+</body>
+</html>

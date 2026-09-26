@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Usuarios</h1>
+    <a href="{{ url_for('crear') }}">Crear nuevo</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th> 
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+        {% for u in usuarios %}
+        <tr>
+            <td>{{ u[0] }}</td>
+            <td>{{ u[1] }}</td>
+            <td>{{ u[2] }}</td>  
+            <td>{{ u[3] }}</td>
+            <td>
+                <a href="{{ url_for('ver', id=u[0]) }}">Ver</a>
+                <a href="{{ url_for('editar', id=u[0]) }}">Editar</a>
+                <a href="{{ url_for('eliminar', id=u[0]) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

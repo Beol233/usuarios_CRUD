@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Información del Usuario</h1>
+    <p>ID: {{ usuario[0] }}</p>
+    <p>Nombre: {{ usuario[1] }}</p>
+    <p>Apellido: {{ usuario[2] }}</p>
+    <p>Email: {{ usuario[3] }}</p>
+    
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
